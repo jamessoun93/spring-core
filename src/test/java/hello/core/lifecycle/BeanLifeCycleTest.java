@@ -18,7 +18,8 @@ public class BeanLifeCycleTest {
     @Configuration
     static class LifeCycleConfig {
 
-        @Bean
+//        @Bean(initMethod = "init", destroyMethod = "close")
+        @Bean(initMethod = "init") // @Bean 으로 직접 설정할 경우 destroyMethod는 메소드 이름에 따라 추론하여 실행해주는 기능이 있음.
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-spring.dev");
